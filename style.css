@@ -1,0 +1,37 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #fafafa;
+  padding: 40px;
+}
+
+h1 {
+  color: #9018c3;
+}
+
+h2 {
+  size: 24px;
+}
+
+h3 {
+  size: 20px;
+}
+
+h4 {
+  size: 18px;
+}
+
+button {
+  background-color: #eacfff;
+  color: rgb(125, 72, 153);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#letter {
+  font-size: 50px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
