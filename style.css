@@ -27,7 +27,9 @@ button {
   border: none;
   padding: 10px 20px;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 12px 12px; /* horizontal gap between buttons */
 }
 
 #letter {

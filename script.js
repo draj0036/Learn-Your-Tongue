@@ -171,6 +171,7 @@ function nextLetter() {
 
 function nextLesson(LessonChoice) {
   // Check if the current lesson is the last one
+  
 if (!LessonChoice) {
   if (currentLessonIndex + 1 >= TamilLessons.length) {
     alert("Congratulations! You have completed all lessons.");
@@ -179,7 +180,11 @@ if (!LessonChoice) {
     currentLessonIndex++; // Move to the next lesson
   }
 } else {
-  const lessonNum = parseInt(lessonChoice.replace("lesson", ""), 10) - 1
+  // this code does:
+  const lessonNum = // define constant lessonnum
+  typeof LessonChoice === 'string' // chck if its a string
+  ? parseInt(LessonChoice.replace("lesson", ""), 10) - 1 //ParseInt if string
+  : LessonChoice // Just take LessonChoice if nto string
 
   currentLessonIndex = lessonNum;// Parse through string to find int, in base 10
 }
@@ -197,10 +202,41 @@ if (!LessonChoice) {
   showOptions(currentLetterIndex);
 
 }
-// Call the function to display the first letter
-showLetter();
-showOptions(currentLetterIndex);
-// Attach the nextLetter function to the button click event
+function storeProgress(currentLessonIndex) {
+  // ensure u adjust lesson num in this for indexing starting at 0
+  localStorage.setItem("currentLesson", currentLessonIndex);
+  let LessonProgTracker = {}
+  for (let i = 0; i <= currentLessonIndex; i++) {
+  LessonProgTracker[i] = 'completed';
+  }
+}
+
+const lessonTree = document.getElementById("lessonTree")
+const nextBtn = document.getElementById("nextBtn");
+const backBtn = document.getElementById("backBtn");
+for (let i = 0 ; i < TamilLessons.length; i++) { // generate lesson buttons and hide lesson tree when clicked
+  const lesson = TamilLessons[i].lessonName
+  let btn = document.createElement('button')
+  btn.textContent = TamilLessons[i].lessonName;
+  btn.dataset.lessonIdx= i
+  lessonTree.appendChild(btn);
+  btn.onclick = () => {
+    nextLesson(i)
+    //document.getElementById("lessonTree").style.display = "none"; // hide lesson tree
+    lessonTree.style.display = "none"; // hide lesson tree
+    lessonContent.style.display = "block"; // show lesson content
+
+  }
+
+}
+
+backBtn.onclick = () => {
+    lessonTree.style.display = "block"; // show lesson tree
+    lessonContent.style.display = "none"; // hide lesson content
+}
+
+
+// prior code that had my next lesson logic
 
 document.getElementById("nextBtn").onclick = () => {
   const resultDiv = document.getElementById("result");
@@ -212,10 +248,12 @@ document.getElementById("nextBtn").onclick = () => {
   resultDiv.textContent = ""
 };
 
-const lessonPick = document.getElementById("ChLsn")
-lessonPick.onchange = () => {
-  console.log(lessonPick.value)
-  nextLesson(lessonChoice = lessonPick.value) // give the 'name' into func
+// prior dropdown menu for lesson selection
+// const lessonPick = document.getElementById("ChLsn")
+// lessonPick.onchange = () => {
+//   console.log(lessonPick.value)
+//   nextLesson(lessonChoice = lessonPick.value) // give the 'name' into func
 
 
-};
+// };
+
