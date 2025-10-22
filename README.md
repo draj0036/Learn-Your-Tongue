@@ -3,8 +3,17 @@ An Interactive Language Learning Website - focusing on reading languages with fe
 
 Currently Working on: Tamil
 
+
+
+
+
+
+
+
+Notes:
+
 Bugs to Debug
-- some random lessons get infotext from lesson 1? - it might be the first lesson u click but chk that
+- some random lessons get infotext from lesson 1? - it might be the first lesson u click but check that
 - completed lessons should only color that lesson, not earlier ones if you skip ahead
 
 Features To Add
@@ -13,7 +22,7 @@ Features To Add
 - Local Storage
     - total gems
     - load progress when opening site 
-- About Me Page + Socials - prob linkedin
+- About Me Page + Socials 
 - 
 
 - Points/Gems (less points if correct on second go)
