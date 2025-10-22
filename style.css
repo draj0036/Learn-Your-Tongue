@@ -37,3 +37,32 @@ button {
   color: rgb(0, 0, 0);
   text-align: center;
 }
+
+#infoTxt {
+  position: fixed;          /* stays in the corner as you scroll */
+  bottom: 20px;             /* or top: 20px; if you want it top corner */
+  right: 20px;              /* or left: 20px; for left corner */
+  background-color: #b388ff; /* light purple */
+  color: white;
+  font-family: "Comic Sans MS", "Segoe UI", sans-serif;
+  font-size: 14px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  max-width: 200px;
+  transform: rotate(-2deg); /* gives that sticky-note tilt */
+  z-index: 1000;            /* ensures it’s on top */
+}
+
+/*make it look like paper edges */
+#infoTxt::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+  border-radius: 8px;
+  pointer-events: none;
+}

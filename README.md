@@ -4,16 +4,14 @@ An Interactive Language Learning Website - focusing on reading languages with fe
 Currently Working on: Tamil
 
 Bugs to Debug
-- lesson 1 button acts as a next lesson, rest are fine.
+- some random lessons get infotext from lesson 1? - it might be the first lesson u click but chk that
+- completed lessons should only color that lesson, not earlier ones if you skip ahead
 
 Features To Add
 - Progress Bar
 - Spaced Repetiton
 - Local Storage
-    - store current lesson
-    - which lessons have been completed. (dynamically code using TamilLessons)
     - total gems
-    - save after every two lessons and when site closed?
     - load progress when opening site 
 - About Me Page + Socials - prob linkedin
 - 
